@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Beroepsproduct5.View;
+package beroepsproduct5.View;
 
 import beroepsproduct5.DbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
@@ -15,22 +16,32 @@ import javafx.scene.layout.Pane;
  *
  * @author SebastiaanU
  */
-public class Overzicht extends GridPane{
-    
-    
-    public Overzicht(Pane p) throws SQLException{
-        getLeveranciers();
-        
+public class Overzicht extends GridPane {
+
+    private TafelView tafelV1, tafelV2, tafelV3, tafelV4;
+
+    public Overzicht(Pane p) {
+        createTables(p);
+
+        this.setHgap(5);
+        this.setVgap(5);
+        this.setPadding(new Insets(10,10,10,10));
+        p.getChildren().addAll(this);
     }
 
-    public void getLeveranciers() throws SQLException{
-        DbConnector db = new DbConnector();
-        String strSQL = "select * from tafels";
-        ResultSet result = db.getData(strSQL);
-        String value = "";
-        while (result.next()){
-            value = result.getString(1);
-            System.out.println(value);
-        }
+    private void createTables(Pane p) {
+        tafelV1 = new TafelView(p);
+        tafelV2 = new TafelView(p);
+        tafelV3 = new TafelView(p);
+        tafelV4 = new TafelView(p);
+    
+       
+        
+        this.add(tafelV1,0,0);
+        this.add(tafelV2,2,0);
+        this.add(tafelV3,0,2);
+        this.add(tafelV4,2,2);
     }
+
 }
+
