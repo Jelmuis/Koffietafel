@@ -25,6 +25,7 @@ public class BpMenu extends MenuBar {
     Menu overzicht = new Menu("Overzicht");
     Menu bestellen = new Menu ("Bestellen");
     Menu betalen = new Menu ("Machine Learning");
+
     MenuItem overzichtItem = new MenuItem("Overzicht");
     MenuItem bestellenItem = new MenuItem ("Bestellen");
     MenuItem betalenItem = new MenuItem ("Selecteer");

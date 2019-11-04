@@ -5,6 +5,7 @@
  */
 package beroepsproduct5.View;
 
+
 import Beroepsproduct5.Model.OmgevingsTemp;
 import Beroepsproduct5.Model.Product;
 import beroepsproduct5.DbConnector;
@@ -14,6 +15,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -23,6 +25,7 @@ import javafx.scene.text.Text;
  *
  * @author Jandri
  */
+<
 public class MachineLearning extends GridPane {
     
     final private Text txtChooseTable;          //tekst voor het selecteren tafel
@@ -224,6 +227,7 @@ public class MachineLearning extends GridPane {
     }
 
   
+
 
 
     
