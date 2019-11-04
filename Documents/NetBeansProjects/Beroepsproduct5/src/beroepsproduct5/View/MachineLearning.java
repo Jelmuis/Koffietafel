@@ -25,7 +25,6 @@ import javafx.scene.text.Text;
  *
  * @author Jandri
  */
-<
 public class MachineLearning extends GridPane {
     
     final private Text txtChooseTable;          //tekst voor het selecteren tafel
