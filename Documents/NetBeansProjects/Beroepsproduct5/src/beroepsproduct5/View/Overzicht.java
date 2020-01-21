@@ -31,16 +31,16 @@ public class Overzicht extends GridPane {
 
     private void createTables(Pane p) {
         tafelV1 = new TafelView(p);
-        tafelV2 = new TafelView(p);
-        tafelV3 = new TafelView(p);
-        tafelV4 = new TafelView(p);
-    
+//        tafelV2 = new TafelView(p);
+//        tafelV3 = new TafelView(p);
+//        tafelV4 = new TafelView(p);
+//    
        
         
         this.add(tafelV1,0,0);
-        this.add(tafelV2,2,0);
-        this.add(tafelV3,0,2);
-        this.add(tafelV4,2,2);
+//        this.add(tafelV2,2,0);
+//        this.add(tafelV3,0,2);
+//        this.add(tafelV4,2,2);
     }
 
 }
