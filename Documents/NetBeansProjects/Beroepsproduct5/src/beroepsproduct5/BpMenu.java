@@ -7,7 +7,7 @@ package beroepsproduct5;
 
 import beroepsproduct5.View.Overzicht;
 import beroepsproduct5.View.Bestellen;
-import beroepsproduct5.View.MachineLearning;
+import beroepsproduct5.View.Tabel;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +42,7 @@ public class BpMenu extends MenuBar {
         });
         betalenItem.setOnAction(e -> {
             p.getChildren().clear();
-            new MachineLearning(p);
+            new Tabel(p);
         });
 
         overzicht.getItems().addAll(overzichtItem);

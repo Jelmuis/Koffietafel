@@ -37,18 +37,19 @@ public class TafelView extends BorderPane {
         this.setWidth(100);
         this.setHeight(100);
         this.setBorder(Border.EMPTY);
-
+//het aanmaken van de tafelplaatsen
         plekNoord = new PlekView(p);
         plekOost = new PlekView(p);
         plekZuid = new PlekView(p);
         plekWest = new PlekView(p);
-
+//het toevoegen van tafelplaatsen aan de  array
         plekList.add(plekNoord);
         plekList.add(plekOost);
         plekList.add(plekZuid);
         plekList.add(plekWest);
-
+//executor service wordt hier aangeroepen
         executorService();
+//een plek geven aan de tafelplaatsen        
         this.setTop(plekNoord);
         this.setRight(plekOost);
         this.setBottom(plekZuid);
@@ -57,7 +58,7 @@ public class TafelView extends BorderPane {
         p.getChildren().addAll(this);
 
     }
-
+//alles wat binnen de executor service staat wordt iedere seconde uitgevoerd.
     public void executorService() {
         scheduler.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
@@ -71,6 +72,7 @@ public class TafelView extends BorderPane {
     }
 
     private void getDbData() throws SQLException {
+        //het ophalen van de data via aan query
         ResultSet result = null;
         String strSQL = "select  producttemp.temperatuur\n"
                 + "                    from producttemp\n"
@@ -82,15 +84,17 @@ public class TafelView extends BorderPane {
                 + "                     \n"
                 + "                    limit 4\n";
         result = db.getData(strSQL);
-
+//alles wat binnen de while (result.next) gebeurt, gebeurt zolang er resultaten zijn vanuit de bovenstaande query
         while (result.next()) {
 
             //int plek = Integer.parseInt(result.getString("plek"));
             double temperatuur = Double.parseDouble(result.getString("temperatuur"));
+//de temperatuur wordt in een arraylist gezet zodat deze later opgehaald kan worden.
             tempArray.add(temperatuur);
 
         }
-
+//binnen de for loop wordt voor iedere plek de temperatuur gemeten, en gekoppeld aan een kleur
+//De plek krijgt de kleur behorend bij de temperatuur en wordt opnieuw geplaatst
         for (int i = 0; i < plekList.size(); i++) {
             if (i == 0) {
                 System.out.println(tempArray.get(i).toString());
@@ -114,10 +118,11 @@ public class TafelView extends BorderPane {
                 this.setLeft(plekList.get(i));
             }
         }
-        System.out.println("--------");
+//de temperatuur array wordt leeg gemaakt omdat alleen de voorste 4 resultaten nodig zijn.
         tempArray.clear();
     }
 
+//hier wordt er gekeken welke temperatuur, welke kleur terug moet geven.
     private Color getTempcolor(double temp) {
         Color color = null;
 
