@@ -120,6 +120,7 @@ public class TafelView extends BorderPane {
         }
 //de temperatuur array wordt leeg gemaakt omdat alleen de voorste 4 resultaten nodig zijn.
         tempArray.clear();
+        System.out.println("------");
     }
 
 //hier wordt er gekeken welke temperatuur, welke kleur terug moet geven.
