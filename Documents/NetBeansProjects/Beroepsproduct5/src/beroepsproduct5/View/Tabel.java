@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beroepsproduct5.View;
 
-import Beroepsproduct5.Model.OmgevingsTemp;
-import Beroepsproduct5.Model.Product;
+
 import beroepsproduct5.DbConnector;
-import java.sql.ResultSet;
+
 import javafx.geometry.Insets;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -34,6 +28,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.text.Font;
 
 /**
  *
@@ -76,14 +71,21 @@ public class Tabel extends GridPane {
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
     private LineChart lineChart;
+    
+    private Text filling; 
+    private Text title;
 
     public Tabel(Pane p) {
         //adding the chart
+        filling = new Text ("                                                ");
+        title = new Text("                     Temperatuur overzicht");
+        title.setFont(Font.font("Verdana",20));
+        
         xAxis = new CategoryAxis();
         yAxis = new NumberAxis();
-        xAxis.setLabel("Time per sec");
+        xAxis.setLabel("Minuten");
         xAxis.setAnimated(true); //axis animations are removed
-        yAxis.setLabel("Value");
+        yAxis.setLabel("Temperatuur");
         yAxis.setAnimated(true); //axis animations are removed
 
         lineChart = new LineChart<>(xAxis, yAxis);
@@ -163,7 +165,9 @@ public class Tabel extends GridPane {
             });
         }, 0, 1, TimeUnit.MINUTES);
             
-            this.add(lineChart,0,0);                                      
+            this.add(filling,0,1);
+            this.add(title,1,0);
+            this.add(lineChart,1,1);                                      
             setPadding(new Insets(10, 10, 10, 10));
             setVgap(10);
             setHgap(10);

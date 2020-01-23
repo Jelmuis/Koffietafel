@@ -31,9 +31,8 @@ public class PlekView extends StackPane {
     final Line l2 = createLine(lineColor, R - 0.5, 0, R - 0.5, 2 * R);
 
     public PlekView(Pane p) {
-        temperatuur.setBoundsType(TextBoundsType.VISUAL);
         Group group = new Group(circle, l1, l2);
-        this.getChildren().addAll(group, temperatuur);
+        this.getChildren().addAll(group);
         p.getChildren().addAll(this);
 
     }
